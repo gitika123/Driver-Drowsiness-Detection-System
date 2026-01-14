@@ -3,9 +3,10 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0%2B-orange)](https://www.tensorflow.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-red)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A comprehensive deep learning solution for detecting driver drowsiness in real-time using both Convolutional Neural Networks (CNN) and Vision Transformer (ViT) architectures. This project addresses the critical need for automated drowsiness detection systems to enhance road safety.
+
+**⚠️ Note: This is part of ongoing research work.**
 
 ## 📋 Table of Contents
 
@@ -16,10 +17,10 @@ A comprehensive deep learning solution for detecting driver drowsiness in real-t
 - [Dataset](#dataset)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Model Performance](#model-performance)
 - [Project Structure](#project-structure)
 - [Contributors](#contributors)
 - [References](#references)
+- [Future Work](#future-work)
 
 ## 🎯 Overview
 
@@ -113,8 +114,8 @@ The models are trained on a driver inattention detection dataset containing imag
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/driver-drowsiness-detection.git
-cd driver-drowsiness-detection
+git clone https://github.com/gitika123/Driver-Drowsiness-Detection-System.git
+cd Driver-Drowsiness-Detection-System
 ```
 
 ### Step 2: Install Dependencies
@@ -135,11 +136,6 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install transformers matplotlib scikit-learn gradio pandas seaborn pillow timm
 ```
 
-#### Or install all dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## 💻 Usage
 
@@ -159,71 +155,29 @@ pip install -r requirements.txt
 
 ### Running the Interactive Dashboard
 
-#### CNN Dashboard:
+The Gradio interface is included in both notebooks. After training, run the dashboard cell to launch the interactive interface for real-time predictions.
 
-The Gradio interface is included in the CNN notebook. After training, run the dashboard cell to launch the interactive interface.
-
-#### Vision Transformer Dashboard:
-
-Similarly, the ViT notebook includes a Gradio interface for real-time predictions.
-
-### Example Usage
-
-```python
-# CNN Model Prediction
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-import numpy as np
-
-model = load_model('best_cnn_model.keras')
-img = image.load_img('path/to/image.jpg', target_size=(224, 224))
-img_array = image.img_to_array(img) / 255.0
-img_array = np.expand_dims(img_array, 0)
-prediction = model.predict(img_array)
-predicted_class = labels[np.argmax(prediction)]
-```
-
-## 📈 Model Performance
-
-### Evaluation Metrics
-
-Both models are evaluated using:
-- **Accuracy**: Overall classification accuracy
-- **Precision, Recall, F1-Score**: Per-class and weighted averages
-- **Confusion Matrix**: Visual representation of classification performance
-- **Binary Classification**: Drowsy vs. Not Drowsy performance
-
-### Training Curves
-
-Training history visualizations are automatically generated showing:
-- Training vs. Validation accuracy
-- Training vs. Validation loss
-- Overfitting analysis and recommendations
 
 ## 📂 Project Structure
 
 ```
-driver-drowsiness-detection/
+Driver-Drowsiness-Detection-System/
 │
-├── cs163_driver_drowsiness_cnn_complete.ipynb       # CNN model implementation
-├── cs163_driver_drowsiness_multimodal_transformer.ipynb  # ViT model implementation
-├── dashboard.png                                     # Dashboard screenshot 1
-├── drowsiness dashboard .png                         # Dashboard screenshot 2
-├── Real-Time-Driver-Drowsiness-Detection-with-Multimodal-Transformer-Models ppt final last.pptx.pdf  # Presentation
-├── README.md                                         # This file
-└── .gitignore                                        # Git ignore file
+├── cs163_driver_drowsiness_cnn_complete.ipynb                    # CNN model implementation
+├── cs163_driver_drowsiness_multimodal_transformer.ipynb          # ViT model implementation
+├── dashboard.png                                                  # Dashboard screenshot
+├── drowsiness dashboard .png                                      # Dashboard screenshot
+├── Real-Time-Driver-Drowsiness-Detection-with-Multimodal-Transformer-Models ppt final last.pptx.pdf
+├── README.md                                                      # This file
+└── .gitignore                                                     # Git ignore file
 ```
 
 ## 📸 Screenshots
 
-### Dashboard Interface
-
 ![Dashboard](dashboard.png)
-
 *Real-time monitoring dashboard with model selection, predictions, and visualization*
 
 ![Drowsiness Dashboard](drowsiness%20dashboard%20.png)
-
 *Detailed drowsiness detection interface with confidence scores and alerts*
 
 ## 👥 Contributors
@@ -250,7 +204,6 @@ driver-drowsiness-detection/
 
 7. Mashhour, Z., "Driver Inattention Detection Dataset," Kaggle, 2022. [Online]. Available: https://www.kaggle.com/datasets/zeyad1mashhour/driver-inattention-detection-dataset
 
-For a complete list of references, please refer to the research paper.
 
 ## 🔮 Future Work
 
@@ -259,17 +212,6 @@ For a complete list of references, please refer to the research paper.
 - **Real-World Validation**: Testing across diverse conditions, demographics, and vehicle types
 - **Enhanced Explainability**: Integration of attention visualization and SHAP value analysis
 - **Adaptive Thresholds**: Personalize detection based on individual driving patterns and time of day
-
-## ⚠️ Limitations
-
-1. **Dataset Scope**: Current dataset may not fully capture real-world driving scenarios across all demographics and lighting conditions
-2. **Computational Requirements**: Vision Transformer requires more resources than CNN for real-time deployment
-3. **Temporal Analysis**: Current models analyze individual frames without sequence context
-4. **Generalization**: Limited testing on unseen scenarios and different camera setups
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
@@ -280,5 +222,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-**Note**: This project was developed as part of CS163 (Data Science) coursework at San Jose State University. For detailed methodology and experimental results, please refer to the research paper included in the repository.
+**Note**: This is part of ongoing research work. This project was developed as part of CS163 (Data Science) coursework at San Jose State University.
 
